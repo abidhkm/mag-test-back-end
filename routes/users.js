@@ -7,6 +7,7 @@ const tokenUtility = require('../utils/token')
 router.get("/", tokenUtility.verifyToken,  user.search);
 router.post("/create", user.create);
 router.post("/signin", user.signIn);
+router.get("/authenticate", tokenUtility.verifyToken, user.authenticate );
 
 
 module.exports = router;

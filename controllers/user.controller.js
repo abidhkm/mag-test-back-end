@@ -93,3 +93,10 @@ exports.search = (req, res) => { // TODO association query - email , avoid admin
             });
         });
 }
+
+
+exports.authenticate = (req, res) => {
+
+    res.send({ validToken: true });
+
+};
