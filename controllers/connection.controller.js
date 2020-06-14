@@ -45,7 +45,7 @@ exports.fetchRequests = (req, res) => {
     Relationship.findAll(
         {
             where: {
-                second_party: req.body.connectionId,
+                second_party: req.body.company_id,
                 status: 'pending'
             }
         }

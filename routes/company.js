@@ -11,7 +11,10 @@ const tokenUtility = require('../utils/token')
 router.post("/create", tokenUtility.verifyToken ,company.create);
 router.post("/request", tokenUtility.verifyToken ,connection.sendConnection);
 router.put("/respond", tokenUtility.verifyToken ,connection.respondConnection);
-router.get("/get-requests", tokenUtility.verifyToken ,connection.fetchRequests);
+router.post("/get-requests", tokenUtility.verifyToken ,connection.fetchRequests);
 router.post("/new-employee", tokenUtility.verifyToken ,userCompany.addEmployee);
+router.get("/fetch", tokenUtility.verifyToken , company.getCompany);
+router.get("/search", tokenUtility.verifyToken , company.search);
+// router.get("/employees", tokenUtility.verifyToken , company.getEmployee);
 
 module.exports = router;
