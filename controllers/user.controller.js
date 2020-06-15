@@ -58,7 +58,7 @@ exports.signIn = (req, res) => {
         },
         attributes: ['email'],
         include: [{
-            model: User, as: 'companyAdminRef'
+            model: User, as: 'userRef'
         }]
     })
         .then(data => {
