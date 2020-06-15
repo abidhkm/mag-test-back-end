@@ -26,6 +26,7 @@ db.company_admin = require("./company_admin.model")(sequelize, Sequelize);
 db.relationship = require("./relationship.model")(sequelize, Sequelize);
 db.user_company = require("./user_company.model")(sequelize, Sequelize);
 
-// db.user.hasOne(db.login)
+db.login.belongsTo(db.user, { as: 'userRef', foreignKey: 'id' }) //TODO add other associations 
+// db.company_admin.belongsTo(db.company, {as : 'companyAdminRef' , foreignKey: 'company_id'  } )
 
 module.exports = db;

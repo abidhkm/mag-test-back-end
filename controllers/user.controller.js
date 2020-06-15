@@ -55,13 +55,17 @@ exports.signIn = (req, res) => {
         where: {
             password: login.password,
             email: login.email
-        }
+        },
+        attributes: ['email'],
+        include: [{
+            model: User, as: 'companyAdminRef'
+        }]
     })
         .then(data => {
 
             if (data) {
                 const token = tokenUtility.generateToken(data.dataValues.email, data.dataValues.id);
-                res.send({ token });
+                res.send({ token, data });
             }
             else {
                 res.status(404).end();
